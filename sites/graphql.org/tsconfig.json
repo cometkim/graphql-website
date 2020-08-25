@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "src",
+    "typings",
+    "gatsby-config.ts",
+    "gatsby-node.ts",
+    "gatsby-browser.tsx",
+    "gatsby-ssr.tsx"
+  ],
+  "exclude": [
+    "noop"
+  ]
+}

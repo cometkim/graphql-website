@@ -1,0 +1,7 @@
+/.yarn/cache/**                linguist-vendored
+/.yarn/releases/yarn-berry.js  binary linguist-generated
+/.yarn/plugins/**              binary linguist-generated
+/.yarn/sdks/**                 binary linguist-generated
+/.yarn/versions/**             linguist-generated
+/.yarn/pnpify/**               binary linguist-generated
+/.pnp.js                       binary linguist-generated
