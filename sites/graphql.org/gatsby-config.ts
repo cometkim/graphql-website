@@ -23,6 +23,7 @@ type PluginConfig = (
 );
 
 export const plugins: PluginConfig[] = [
+  'gatsby-plugin-theme-ui',
   {
     resolve: 'gatsby-source-filesystem',
     options: {
