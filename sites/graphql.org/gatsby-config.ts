@@ -23,7 +23,9 @@ type PluginConfig = (
 );
 
 export const plugins: PluginConfig[] = [
+  'gatsby-plugin-emotion',
   'gatsby-plugin-theme-ui',
+  'gatsby-plugin-svgr',
   {
     resolve: 'gatsby-source-filesystem',
     options: {
