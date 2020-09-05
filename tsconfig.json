@@ -11,6 +11,6 @@
     "noEmit": true,
     "composite": true,
     "incremental": true,
-    "jsx": "preserve"
+    "jsx": "react"
   }
 }

@@ -1,16 +1,16 @@
 import React from 'react';
 import dedent from 'dedent';
 import { Link } from 'gatsby';
-import { rem, em } from 'polished';
-import { keyframes } from '@emotion/core';
-import { Box, Container, Button } from 'theme-ui';
+import { rem } from 'polished';
 
-import Logo from '../components/Logo';
-import Snippet from '../components/Snippet';
+import { styled, css } from 'gatsby-theme-stitches/stitches.config';
 
-import backgroundImageUrl from '../images/graph-wave.svg';
+import Logo from 'components/Logo';
+import backgroundImageUrl from 'images/graph-wave.svg';
 
-const fadeIn = keyframes({
+import Snippet from './hero/Snippet';
+
+const fadeIn = css.keyframes({
   from: {
     opacity: 0,
     transform: 'translate(0, 30px)',
@@ -21,50 +21,74 @@ const fadeIn = keyframes({
   },
 });
 
+const Container = styled('div', {
+  position: 'relative',
+  minHeight: rem(450),
+  maxHeight: rem(900),
+  backgroundColor: '#171e26',
+  '::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    background: `url(${backgroundImageUrl}) repeat center center`,
+    width: '100%',
+    height: '100%',
+  },
+  md: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '65vh',
+  },
+});
+
+const IntroContainer = styled('div', {
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+});
+
+const Intro = styled('div', {
+  display: 'flex',
+  variants: {
+    direction: {
+      column: {
+        flexDirection: 'column',
+      },
+      row: {
+        flexDirection: 'row',
+      },
+    }
+  },
+});
+
+const ButtonContainer = styled('div', {
+  position: 'absolute',
+  top: 'calc(70%)',
+  textAlign: 'center',
+  animation: `${fadeIn} 1.1s 3.2s ease-in-out both`,
+  '> a': {
+    marginX: rem(13),
+  },
+});
+
+
+const ButtonLink = styled(Link, {
+});
+
 const Hero: React.FC = () => {
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        display: [undefined, 'flex'],
-        alignItems: [undefined, 'center'],
-        justifyContent: [undefined, 'center'],
-        minHeight: rem(450),
-        maxHeight: rem(900),
-        height: [undefined, '65vh'],
-        backgroundColor: 'backgroundInvert',
-        '::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          background: `url(${backgroundImageUrl}) repeat center center`,
-          width: '100%',
-          height: '100%',
-        },
-      }}
-    >
-      <Box
-        sx={{
-          position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-around',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: ['column', 'row'],
-          }}
-        >
+    <Container>
+      <IntroContainer>
+        <Intro direction={{ initial: 'column', lg: 'row' }}>
           <Logo
             size={90}
-            color="primary"
+            color="$primary"
             showTitle
-            as="h1"
-            css={{
+            className={css({
               animation: `${fadeIn} 1.2s ease-in-out both`,
-            }}
+            })}
           />
           <Snippet
             title="Describe your data"
@@ -76,9 +100,9 @@ const Hero: React.FC = () => {
                 contributors: [User]
               }
             `}
-            css={{
+            className={css({
               animation: `${fadeIn} 1s 1s ease-in-out both`,
-            }}
+            })}
           />
           <Snippet
             title="Ask for what you want"
@@ -90,9 +114,9 @@ const Hero: React.FC = () => {
                 }
               }
             `}
-            css={{
+            className={css({
               animation: `${fadeIn} 1s 1.5s ease-in-out both`,
-            }}
+            })}
           />
           <Snippet
             title="Get predictable results"
@@ -104,27 +128,17 @@ const Hero: React.FC = () => {
                 }
               }
             `}
-            css={{
+            className={css({
               animation: `${fadeIn} 1s 2s ease-in-out both`,
-            }}
+            })}
           />
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 'calc(70%)',
-          textAlign: 'center',
-          animation: `${fadeIn} 1.1s 3.2s ease-in-out both`,
-          '> a': {
-            marginX: rem(13),
-          },
-        }}
-      >
-        <Button as={Link} to="/code/" variant="invert">Get Started</Button>
-        <Button as={Link} to="/learn/" variant="invert">Learn More</Button>
-      </Box>
-    </Box>
+        </Intro>
+      </IntroContainer>
+      <ButtonContainer>
+        <ButtonLink to="/code/">Get Started</ButtonLink>
+        <ButtonLink to="/learn/">Learn More</ButtonLink>
+      </ButtonContainer>
+    </Container>
   );
 };
 

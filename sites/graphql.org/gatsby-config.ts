@@ -3,6 +3,7 @@ import type { OverrideProps } from '@cometjs/core';
 
 import type { FileSystemOptions } from 'gatsby-source-filesystem';
 import type { PluginOptions as ManifestPluginOptions } from 'gatsby-plugin-manifest';
+import type { PluginOptions as ModuleResolverPluginOptions } from 'gatsby-plugin-module-resolver';
 import type { PluginOptions as TypegenPluginOptions } from 'gatsby-plugin-typegen/types';
 
 export const siteMetadata = {
@@ -19,12 +20,12 @@ type PluginConfig = (
   | string
   | PluginRef<'gatsby-source-filesystem', FileSystemOptions>
   | PluginRef<'gatsby-plugin-manifest', ManifestPluginOptions>
+  | PluginRef<'gatsby-plugin-module-resolver', ModuleResolverPluginOptions>
   | PluginRef<'gatsby-plugin-typegen', TypegenPluginOptions>
 );
 
 export const plugins: PluginConfig[] = [
-  'gatsby-plugin-emotion',
-  'gatsby-plugin-theme-ui',
+  'gatsby-theme-stitches',
   'gatsby-plugin-svgr',
   {
     resolve: 'gatsby-source-filesystem',
@@ -44,8 +45,25 @@ export const plugins: PluginConfig[] = [
     },
   },
   {
+    resolve: 'gatsby-plugin-module-resolver',
+    options: {
+      root: './src',
+      aliases: {
+        'gatsby-theme-stitches': './gatsby-theme-stitches',
+        'components': './components',
+        'images': './images',
+      },
+    },
+  },
+  {
     resolve: 'gatsby-plugin-typegen',
     options: {
+    },
+  },
+  {
+    resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+    options: {
+      analyzerMode: 'static',
     },
   },
 ];

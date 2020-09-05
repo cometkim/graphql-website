@@ -1,31 +1,30 @@
 import type { PageProps } from 'gatsby';
 
 import React from 'react'
-import dedent from 'dedent';
-import { Box, Button } from 'theme-ui';
-import { Global, css } from '@emotion/core';
+import { css } from 'gatsby-theme-stitches/stitches.config';
 
 import Hero from '../components/Hero';
-import Logo from '../components/Logo';
-import Snippet from '../components/Snippet';
 
 type IndexPageProps = PageProps<never>;
+
+css.global({
+  '*': {
+    textRendering: 'optimizeLegibility',
+    // @ts-ignore
+    WebkitFontSmoothing: 'antialiased',
+  },
+  body: {
+    margin: 0,
+  },
+});
 
 const IndexPage: React.FC<IndexPageProps> = () => {
   return (
     <header
-      css={{
+      className={css({
         position: 'relative',
-      }}
+      })}
     >
-      <Global
-        styles={css({
-          '*': {
-            textRendering: 'optimizeLegibility',
-            WebkitFontSmoothing: 'antialiased',
-          },
-        })}
-      />
       <Hero/>
     </header>
   );
