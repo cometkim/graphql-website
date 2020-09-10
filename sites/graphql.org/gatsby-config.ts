@@ -64,6 +64,7 @@ export const plugins: PluginConfig[] = [
     resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
     options: {
       analyzerMode: 'static',
+      openAnalyzer: false,
     },
   },
 ];

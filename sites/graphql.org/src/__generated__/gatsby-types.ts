@@ -1432,6 +1432,7 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___aliases___components = 'pluginCreator.pluginOptions.aliases.components',
   pluginCreator___pluginOptions___aliases___images = 'pluginCreator.pluginOptions.aliases.images',
   pluginCreator___pluginOptions___analyzerMode = 'pluginCreator.pluginOptions.analyzerMode',
+  pluginCreator___pluginOptions___openAnalyzer = 'pluginCreator.pluginOptions.openAnalyzer',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
@@ -1635,6 +1636,7 @@ enum SitePluginFieldsEnum {
   pluginOptions___aliases___components = 'pluginOptions.aliases.components',
   pluginOptions___aliases___images = 'pluginOptions.aliases.images',
   pluginOptions___analyzerMode = 'pluginOptions.analyzerMode',
+  pluginOptions___openAnalyzer = 'pluginOptions.openAnalyzer',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
@@ -1763,6 +1765,7 @@ type SitePluginPluginOptions = {
   readonly root: Maybe<Scalars['String']>;
   readonly aliases: Maybe<SitePluginPluginOptionsAliases>;
   readonly analyzerMode: Maybe<Scalars['String']>;
+  readonly openAnalyzer: Maybe<Scalars['Boolean']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
 
@@ -1793,6 +1796,7 @@ type SitePluginPluginOptionsFilterInput = {
   readonly root: Maybe<StringQueryOperatorInput>;
   readonly aliases: Maybe<SitePluginPluginOptionsAliasesFilterInput>;
   readonly analyzerMode: Maybe<StringQueryOperatorInput>;
+  readonly openAnalyzer: Maybe<BooleanQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
 
