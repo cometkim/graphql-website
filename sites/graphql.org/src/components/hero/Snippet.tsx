@@ -36,6 +36,8 @@ const Pre = styled('pre', {
   fontSize: rem(16),
   margin: 0,
   lineHeight: 1.5,
+  maxWidth: '100%',
+  overflowX: 'auto',
 });
 
 const Snippet: React.FC<SnippetProps> = ({

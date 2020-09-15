@@ -25,6 +25,7 @@ export const { css, styled } = createStyled({
     },
     fonts: {
       $heading: `'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif`,
+      $body: `'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif`,
       $system: `'Rubik', 'Helvetica Neue', Helvetica, Arial, system-ui`,
     },
   },

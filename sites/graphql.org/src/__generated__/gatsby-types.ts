@@ -1768,9 +1768,9 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
   pluginCreator___pluginOptions___root = 'pluginCreator.pluginOptions.root',
   pluginCreator___pluginOptions___aliases____components = 'pluginCreator.pluginOptions.aliases._components',
-  pluginCreator___pluginOptions___aliases____layouts = 'pluginCreator.pluginOptions.aliases._layouts',
   pluginCreator___pluginOptions___aliases____theme = 'pluginCreator.pluginOptions.aliases._theme',
   pluginCreator___pluginOptions___aliases____images = 'pluginCreator.pluginOptions.aliases._images',
+  pluginCreator___pluginOptions___aliases____utils = 'pluginCreator.pluginOptions.aliases._utils',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
@@ -1971,9 +1971,9 @@ enum SitePluginFieldsEnum {
   pluginOptions___cacheDigest = 'pluginOptions.cacheDigest',
   pluginOptions___root = 'pluginOptions.root',
   pluginOptions___aliases____components = 'pluginOptions.aliases._components',
-  pluginOptions___aliases____layouts = 'pluginOptions.aliases._layouts',
   pluginOptions___aliases____theme = 'pluginOptions.aliases._theme',
   pluginOptions___aliases____images = 'pluginOptions.aliases._images',
+  pluginOptions___aliases____utils = 'pluginOptions.aliases._utils',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
@@ -2106,16 +2106,16 @@ type SitePluginPluginOptions = {
 
 type SitePluginPluginOptionsAliases = {
   readonly _components: Maybe<Scalars['String']>;
-  readonly _layouts: Maybe<Scalars['String']>;
   readonly _theme: Maybe<Scalars['String']>;
   readonly _images: Maybe<Scalars['String']>;
+  readonly _utils: Maybe<Scalars['String']>;
 };
 
 type SitePluginPluginOptionsAliasesFilterInput = {
   readonly _components: Maybe<StringQueryOperatorInput>;
-  readonly _layouts: Maybe<StringQueryOperatorInput>;
   readonly _theme: Maybe<StringQueryOperatorInput>;
   readonly _images: Maybe<StringQueryOperatorInput>;
+  readonly _utils: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsFilterInput = {
