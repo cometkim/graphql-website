@@ -1,5 +1,13 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+import type { GatsbyNode } from 'gatsby';
+
+export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({
+  stage,
+  actions,
+}) => {
+  if (stage.startsWith('build')) {
+    actions.setBabelPlugin({
+      name: 'babel-plugin-polished',
+      options: [],
+    });
+  }
+};
