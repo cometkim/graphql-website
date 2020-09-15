@@ -5,7 +5,8 @@
     "paths": {
       "~theme/*": ["./src/gatsby-theme-stitches/*"],
       "~components/*": ["./src/components/*"],
-      "~images/*": ["./src/images/*"]
+      "~images/*": ["./src/images/*"],
+      "~utils/*": ["./src/utils/*"]
     }
   }
 }

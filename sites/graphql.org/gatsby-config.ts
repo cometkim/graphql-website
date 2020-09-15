@@ -5,6 +5,7 @@ import type { FileSystemOptions } from 'gatsby-source-filesystem';
 import type { PluginOptions as ManifestPluginOptions } from 'gatsby-plugin-manifest';
 import type { PluginOptions as ModuleResolverPluginOptions } from 'gatsby-plugin-module-resolver';
 import type { PluginOptions as TypegenPluginOptions } from 'gatsby-plugin-typegen/types';
+import type { PluginOptions as MdxPluginOptions } from 'gatsby-plugin-mdx/types';
 
 export const siteMetadata = {
   title: 'GraphQL: A query language for APIs',
@@ -22,6 +23,7 @@ type PluginConfig = (
   | PluginRef<'gatsby-plugin-manifest', ManifestPluginOptions>
   | PluginRef<'gatsby-plugin-module-resolver', ModuleResolverPluginOptions>
   | PluginRef<'gatsby-plugin-typegen', TypegenPluginOptions>
+  | PluginRef<'gatsby-plugin-mdx', MdxPluginOptions>
 );
 
 export const plugins: PluginConfig[] = [
@@ -35,6 +37,12 @@ export const plugins: PluginConfig[] = [
     },
   },
   {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'pages',
+      path: `${__dirname}/src/pages`,
+    },
+  }, {
     resolve: 'gatsby-plugin-manifest',
     options: {
       name: siteMetadata.title,
@@ -52,6 +60,7 @@ export const plugins: PluginConfig[] = [
         '~components': './src/components',
         '~theme': './src/gatsby-theme-stitches',
         '~images': './src/images',
+        '~utils': './src/utils',
       },
     },
   },
@@ -59,5 +68,9 @@ export const plugins: PluginConfig[] = [
     resolve: 'gatsby-plugin-typegen',
     options: {
     },
+  },
+  {
+    resolve: 'gatsby-plugin-mdx',
+    options: {},
   },
 ];

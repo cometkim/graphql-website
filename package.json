@@ -11,5 +11,10 @@
     "@types/react-dom": "^16.9.8",
     "@yarnpkg/pnpify": "^2.1.0",
     "typescript": "^4.0.2"
+  },
+  "dependenciesMeta": {
+    "@mdx-js/mdx": {
+      "unplugged": true
+    }
   }
 }
