@@ -2,11 +2,9 @@ import React from 'react';
 import dedent from 'dedent';
 import { Link } from 'gatsby';
 import { rem } from 'polished';
-
-import { styled, css } from 'gatsby-theme-stitches/stitches.config';
-
-import Logo from 'components/Logo';
-import backgroundImageUrl from 'images/graph-wave.svg';
+import Logo from '~components/Logo';
+import { styled, css } from '~theme/stitches.config';
+import backgroundImageUrl from '~images/graph-wave.svg';
 
 import Snippet from './hero/Snippet';
 
@@ -72,7 +70,6 @@ const ButtonContainer = styled('div', {
     marginX: rem(13),
   },
 });
-
 
 const ButtonLink = styled(Link, {
 });

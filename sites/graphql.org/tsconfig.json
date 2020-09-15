@@ -1,14 +1,11 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./src"
-  },
-  "include": [
-    "./src/**/*",
-    "./typings/*",
-    "./gatsby-config.ts",
-    "./gatsby-node.ts",
-    "./gatsby-browser.tsx",
-    "./gatsby-ssr.tsx"
-  ]
+    "baseUrl": ".",
+    "paths": {
+      "~theme/*": ["./src/gatsby-theme-stitches/*"],
+      "~components/*": ["./src/components/*"],
+      "~images/*": ["./src/images/*"]
+    }
+  }
 }

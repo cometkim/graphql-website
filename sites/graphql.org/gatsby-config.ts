@@ -47,24 +47,17 @@ export const plugins: PluginConfig[] = [
   {
     resolve: 'gatsby-plugin-module-resolver',
     options: {
-      root: './src',
+      root: '.',
       aliases: {
-        'gatsby-theme-stitches': './gatsby-theme-stitches',
-        'components': './components',
-        'images': './images',
+        '~components': './src/components',
+        '~theme': './src/gatsby-theme-stitches',
+        '~images': './src/images',
       },
     },
   },
   {
     resolve: 'gatsby-plugin-typegen',
     options: {
-    },
-  },
-  {
-    resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-    options: {
-      analyzerMode: 'static',
-      openAnalyzer: false,
     },
   },
 ];

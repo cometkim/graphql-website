@@ -1,9 +1,7 @@
 import React from 'react';
 import { em, rem } from 'polished';
-
-import { styled } from '../gatsby-theme-stitches/stitches.config';
-
-import { ReactComponent as _LogoSvg } from '../images/logo.svg';
+import { styled } from '~theme/stitches.config';
+import { ReactComponent as _LogoSvg } from '~images/logo.svg';
 
 type LogoProps = {
   size: number,

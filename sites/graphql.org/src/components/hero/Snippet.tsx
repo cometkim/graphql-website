@@ -1,14 +1,15 @@
+import type { Language } from 'prism-react-renderer';
+
 import React from 'react';
 import { rem } from 'polished';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-
-import { styled } from 'gatsby-theme-stitches/stitches.config';
+import { styled } from '~theme/stitches.config';
 
 import prismTheme from './snippet/prismTheme';
 
 type SnippetProps = {
   title: string,
-  language: string,
+  language: Language,
   code: string,
   className?: string,
 };

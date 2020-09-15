@@ -866,6 +866,8 @@ type Query_allSitePageArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  port: Maybe<IntQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -927,6 +929,8 @@ type Query_allSitePluginArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly port: Maybe<Scalars['Int']>;
+  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -1129,6 +1133,8 @@ enum SiteFieldsEnum {
   buildTime = 'buildTime',
   siteMetadata___title = 'siteMetadata.title',
   siteMetadata___description = 'siteMetadata.description',
+  port = 'port',
+  host = 'host',
   polyfill = 'polyfill',
   pathPrefix = 'pathPrefix',
   id = 'id',
@@ -1222,6 +1228,8 @@ enum SiteFieldsEnum {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  readonly port: Maybe<IntQueryOperatorInput>;
+  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -1428,11 +1436,9 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___theme_color_in_head = 'pluginCreator.pluginOptions.theme_color_in_head',
   pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
   pluginCreator___pluginOptions___root = 'pluginCreator.pluginOptions.root',
-  pluginCreator___pluginOptions___aliases___gatsby_theme_stitches = 'pluginCreator.pluginOptions.aliases.gatsby_theme_stitches',
-  pluginCreator___pluginOptions___aliases___components = 'pluginCreator.pluginOptions.aliases.components',
-  pluginCreator___pluginOptions___aliases___images = 'pluginCreator.pluginOptions.aliases.images',
-  pluginCreator___pluginOptions___analyzerMode = 'pluginCreator.pluginOptions.analyzerMode',
-  pluginCreator___pluginOptions___openAnalyzer = 'pluginCreator.pluginOptions.openAnalyzer',
+  pluginCreator___pluginOptions___aliases____components = 'pluginCreator.pluginOptions.aliases._components',
+  pluginCreator___pluginOptions___aliases____theme = 'pluginCreator.pluginOptions.aliases._theme',
+  pluginCreator___pluginOptions___aliases____images = 'pluginCreator.pluginOptions.aliases._images',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
@@ -1632,11 +1638,9 @@ enum SitePluginFieldsEnum {
   pluginOptions___theme_color_in_head = 'pluginOptions.theme_color_in_head',
   pluginOptions___cacheDigest = 'pluginOptions.cacheDigest',
   pluginOptions___root = 'pluginOptions.root',
-  pluginOptions___aliases___gatsby_theme_stitches = 'pluginOptions.aliases.gatsby_theme_stitches',
-  pluginOptions___aliases___components = 'pluginOptions.aliases.components',
-  pluginOptions___aliases___images = 'pluginOptions.aliases.images',
-  pluginOptions___analyzerMode = 'pluginOptions.analyzerMode',
-  pluginOptions___openAnalyzer = 'pluginOptions.openAnalyzer',
+  pluginOptions___aliases____components = 'pluginOptions.aliases._components',
+  pluginOptions___aliases____theme = 'pluginOptions.aliases._theme',
+  pluginOptions___aliases____images = 'pluginOptions.aliases._images',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
@@ -1764,21 +1768,19 @@ type SitePluginPluginOptions = {
   readonly cacheDigest: Maybe<Scalars['String']>;
   readonly root: Maybe<Scalars['String']>;
   readonly aliases: Maybe<SitePluginPluginOptionsAliases>;
-  readonly analyzerMode: Maybe<Scalars['String']>;
-  readonly openAnalyzer: Maybe<Scalars['Boolean']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
 
 type SitePluginPluginOptionsAliases = {
-  readonly gatsby_theme_stitches: Maybe<Scalars['String']>;
-  readonly components: Maybe<Scalars['String']>;
-  readonly images: Maybe<Scalars['String']>;
+  readonly _components: Maybe<Scalars['String']>;
+  readonly _theme: Maybe<Scalars['String']>;
+  readonly _images: Maybe<Scalars['String']>;
 };
 
 type SitePluginPluginOptionsAliasesFilterInput = {
-  readonly gatsby_theme_stitches: Maybe<StringQueryOperatorInput>;
-  readonly components: Maybe<StringQueryOperatorInput>;
-  readonly images: Maybe<StringQueryOperatorInput>;
+  readonly _components: Maybe<StringQueryOperatorInput>;
+  readonly _theme: Maybe<StringQueryOperatorInput>;
+  readonly _images: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsFilterInput = {
@@ -1795,8 +1797,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly cacheDigest: Maybe<StringQueryOperatorInput>;
   readonly root: Maybe<StringQueryOperatorInput>;
   readonly aliases: Maybe<SitePluginPluginOptionsAliasesFilterInput>;
-  readonly analyzerMode: Maybe<StringQueryOperatorInput>;
-  readonly openAnalyzer: Maybe<BooleanQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -1833,5 +1833,10 @@ type StringQueryOperatorInput = {
   readonly regex: Maybe<Scalars['String']>;
   readonly glob: Maybe<Scalars['String']>;
 };
+
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 }

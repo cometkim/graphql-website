@@ -43,8 +43,10 @@ export const { css, styled } = createStyled({
 });
 
 export const darkTheme = css.theme({
-  $bg: '',
-  $text: '',
+  colors: {
+    $bg: '',
+    $text: '',
+  },
 });
 
 export type LandingSectionColor = (
